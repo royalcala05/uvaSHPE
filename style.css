@@ -1,0 +1,74 @@
+General Reset
+*{
+  box-sizing: border-box;
+  /*removes default browser margins and padding for a clean slate */
+  margin: 0; 
+  padding: 0;.item {
+  background: gray;
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+}
+
+    font-family: 'Kumbh Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Top Section */
+header {
+  width: 100%;
+  background-color: #f4f4f4; /* Matches the nav background */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  height: 100px;
+}
+
+nav {
+  background-color: transparent; /* Inherit header background */
+}
+
+.TopBar {
+  display: flex;
+  align-items: center; 
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;    
+}
+
+/* Navbar Links */
+.nav_links {
+  width: 50%;
+  display: flex;
+  flex-direction: row; 
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.nav_links a {
+  text-decoration: none;
+  color: #0e3559; 
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav_links a:hover {
+  color: #f39c12;         
+  background-color: #333;
+  padding: 0.5px; 
+  border-radius: 4px;  
+}
+
+/* Navbar Items */
+.item {
+  width: 150px;
+  height: 100px;
+  margin: 0 5px;
+  padding-top: 40px;
+  padding-left: 75px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
