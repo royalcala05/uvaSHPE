@@ -256,4 +256,52 @@ nav
 
 
 
-  
+  /* OUR MISSION SECTION */
+
+  .mission 
+  {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    background: #f4f4f4;
+    /* space below */
+    padding-bottom: 25px;
+}
+
+/* fix rounded corners */
+.mission-image 
+ {
+  height: auto;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  padding-left: 25px;
+  /* get this to work */
+  border-radius: 10px;
+}
+
+
+/* Text Container */
+.mission-info {
+  color: #333; /* Dark Navy Text */
+}
+.learn-more-btn {
+  display: inline-block;
+  background: #0e3559; /* Dark Navy Button */
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.learn-more-btn:hover {
+  background: #1c496b; /* Darker Navy on Hover */
+  transform: scale(1.05);
+}
+
+
+
