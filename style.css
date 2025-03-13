@@ -4,7 +4,8 @@ General Reset
   /*removes default browser margins and padding for a clean slate */
   margin: 0; 
   /* padding: 0; */
-  .item {
+  .item 
+  {
   background: gray;
   width: 50px;
   height: 50px;
@@ -45,7 +46,15 @@ header {
   height: 100%;
 }
 
-nav {
+.wrapper h1 {
+  font-size: 1.2rem;
+  width: 20rem;
+  font-weight: 700;
+  padding-right: 50px;
+  padding-left: 100px;
+}
+nav 
+{
   background-color: transparent; /* same background as header  */
 }
 
@@ -68,15 +77,16 @@ nav {
   list-style-type: none;
 }
 
-.nav_links a {
+.nav_links a
+ {
   text-decoration: none;
   color: #0e3559; 
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.nav_links a:hover {
+.nav_links a:hover 
+{
   color: #f39c12;         
-  background-color: #333;
   padding: 0.5px; 
   border-radius: 4px;  
 }
@@ -90,5 +100,7 @@ nav {
   padding-left: 75px;
   list-style-type: none;
   text-decoration: none;
+  font-size: 1.2rem;
 }
+
 
