@@ -281,10 +281,52 @@ nav
   border-radius: 10px;
 }
 
-
 /* Text Container */
 .mission-info {
   color: #333; /* Dark Navy Text */
+}
+
+
+
+
+
+/* JUNTOS PODEMOS SECTION  */
+.JuntosPodemos
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 25px;
+}
+.jp-image
+{
+  width: 50%;
+  float: right;
+  height: auto;
+  padding-right: 50px;
+}
+.jp-image img
+{
+  width: 100%;
+}
+
+.JuntosPodemos-info
+{
+  display: inline;
+  /* add any changes to centering, maybe add more info  */
+
+}
+
+.JuntosPodemos-info h1
+{
+  font-size: 50px;
+
+}
+
+.JuntosPodemos-text
+{
+  font-size: 25px;
+  padding-left: 80px;
 }
 .learn-more-btn {
   display: inline-block;
@@ -296,12 +338,12 @@ nav
   border-radius: 6px;
   font-size: 1.1rem;
   margin-top: 20px;
+  
 }
 
-.learn-more-btn:hover {
+.learn-more-btn:hover 
+{
   background: #1c496b; /* Darker Navy on Hover */
   transform: scale(1.05);
 }
-
-
 
