@@ -3,7 +3,7 @@ General Reset
   box-sizing: border-box;
   /*removes default browser margins and padding for a clean slate */
   margin: 0; 
-  /* padding: 0; */
+  padding: 0; 
   .item 
   {
   background: gray;
@@ -11,6 +11,8 @@ General Reset
   height: 50px;
   margin: 0 5px;
 }
+
+
 
 /* FIXING SCROLL AREA WHITE SPACE */
 ::-webkit-scrollbar
@@ -43,7 +45,7 @@ header {
   align-items: center;
   justify-content: space-between;
   /* padding: 1rem 2rem; */ 
-  height: 100%;
+  height: auto;
 }
 
 .wrapper h1 {
@@ -52,13 +54,15 @@ header {
   font-weight: 700;
   padding-right: 50px;
   padding-left: 100px;
+  
 }
 nav 
 {
   background-color: transparent; /* same background as header  */
 }
 
-.TopBar {
+.TopBar
+ {
   display: flex;
   align-items: center; 
 }
@@ -75,6 +79,8 @@ nav
   flex-direction: row; 
   text-decoration: none;
   list-style-type: none;
+    overflow: hidden; 
+
 }
 
 .nav_links a
@@ -103,4 +109,234 @@ nav
   font-size: 1.2rem;
 }
 
+
+/* SECTION BELOW HEADER*/
+.about_us 
+ {
+  display: flex;
+  /* puts items into row */
+  flex-direction: row;
+  /* wraps text around pictures */
+  background-color: #fff;
+  align-items: center;
+  width: 100%; 
+  height: auto;
+ }
+
+.rotunda
+{
+  width: 45em;    /* so only half of width of page */
+  max-width: 45em;
+  height: auto;
+  padding-right: 45px;
+  /* ASK SAL HOW TO FIX THE BORDER  */
+  border-radius: 20px;
+  border: none;
+}
+
+.about_us_text
+{
+  padding-top: 10px;
+  padding-right: 20px;
+}
+
+.about_us_text h2 
+{
+  font-size: 3.5rem; /* Large font size for the main heading */
+  font-weight: 700; /* Bold text for emphasis */
+  color: #0e3559; /* Dark navy color */
+  margin-bottom: 20px;
+}
+
+.about_us_text p
+ {
+  font-size: 1.2rem; /* Standard font size for paragraphs */
+  font-weight: 400; /* Normal font weight */
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+/* caledner  */
+
+.events-section
+{
+  padding-top: 100px;
+  background-color: #0e3559;
+  padding-bottom: 50px;
+  margin-top: 50px;
+}
+.section-heading {
+  font-size: 2.5rem; /* Larger font size for the heading */
+  text-align: center; /* Center-align the heading */
+  color: #fff; /* White text color */
+}
+.events-container iframe {
+  width: 90%;
+  height: 400px;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+.seperation_space
+{
+  background-color: #fff;
+  height: 50px;
+}
+
+
+
+
+
+
+/* join button section */
+
+.btn_image_wrapper {
+  position: relative; 
+  width: 100%; 
+  margin: 0 auto; 
+  overflow: hidden; 
+
+}
+
+/* Add an overlay effect on the image */
+.convention_pic {
+  width: 100%;
+  height: inherit;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+  z-index: 1; /* Ensure the overlay is above the image */
+}
+
+/* Button */
+.become-member {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Place the button above the overlay */
+  background-color: #ff6b35;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+/* Text caption styling */
+.join_caption {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  z-index: 2;   /* caption over image */
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Hover effect */
+.become-member:hover {
+  background-color: #ff3b00;
+}
+
+
+
+
+  /* MISSION SECTION */
+
+  .mission {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Ensures centering */
+    align-items: center;
+    gap: 20px; /* Adds spacing */
+    padding: 20px;
+    background: #f4f4f4;
+
+}
+.mission-image img
+ {
+  height: auto;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+/* Hover  */
+.mission-image img:hover
+ {
+  transform: scale(1.03); /* Subtle zoom effect */
+}
+
+/* Text Container */
+.mission-info {
+  color: #333; /* Dark Navy Text */
+}
+.learn-more-btn {
+  display: inline-block;
+  background: #0e3559; /* Dark Navy Button */
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  margin-top: 20px;
+}
+
+.learn-more-btn:hover {
+  background: #1c496b; /* Darker Navy on Hover */
+  transform: scale(1.05);
+}
+
+/* JUNTOS PODEMOS SECTION  */
+.JuntosPodemos
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; /* Adds spacing */
+    padding: 20px;
+}
+.jp-image
+{
+  width: 100%;
+  float: right;
+  height: auto;
+  padding-right: 5cqw;
+}
+.jp-image img
+{
+  height: auto;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Button is styled above in preivous section same class is used.  */
 
