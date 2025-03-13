@@ -162,3 +162,26 @@ nav
 
 
 
+/* caledner  */
+
+.events-section
+{
+  padding-top: 100px;
+  background-color: #0e3559;
+  padding-bottom: 50px;
+  margin-top: 50px;
+}
+.section-heading {
+  font-size: 2.5rem; /* Larger font size for the heading */
+  text-align: center; /* Center-align the heading */
+  color: #fff; /* White text color */
+}
+.events-container iframe {
+  width: 90%;
+  height: 400px;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+}
+
+
