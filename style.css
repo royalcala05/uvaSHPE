@@ -52,8 +52,7 @@ header {
   font-size: 1.2rem;
   width: 20rem;
   font-weight: 700;
-  padding-right: 50px;
-  padding-left: 100px;
+  padding-left: 50px;
   
 }
 nav 
@@ -74,7 +73,7 @@ nav
 
 /* Navbar Links */
 .nav_links {
-  width: 50%;
+  width: 65%;
   display: flex;
   flex-direction: row; 
   text-decoration: none;
