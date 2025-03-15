@@ -78,7 +78,7 @@ nav
   flex-direction: row; 
   text-decoration: none;
   list-style-type: none;
-    overflow: hidden; 
+  overflow: hidden; 
 
 }
 
@@ -295,7 +295,6 @@ nav
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 25px;
 }
 .jp-image
 {
@@ -345,4 +344,58 @@ nav
   background: #1c496b; /* Darker Navy on Hover */
   transform: scale(1.05);
 }
+
+/* BOTTOM SECTION */
+/* FIX SPACING BETWEEN THESE TWO SCTIONS */
+.bottomSection
+{
+  display: inline-flex;
+  width: 100%;
+  padding-right: 25px;
+  padding-left: 25px;
+  background-color: #f4f4f4;
+}
+.bottomSectionLeft img
+{
+  width: 100px;
+  background: transparent;
+}
+
+.bottomSectionRight
+{
+  display: flex;
+  gap: 20px;
+}
+.bottomSectionRight img 
+{
+  width: 50px;
+  height: 50px;
+  gap: 20px;
+  padding-top: 50%;
+
+}
+
+.bottomSectionFarRight
+{
+  width: 100%;
+}
+.bottomItems
+{
+  display: flex ;
+  flex-direction: row;
+  flex-direction: row; 
+  list-style-type: none;
+  color: #0e3559; 
+  gap: 50px;
+  padding-left: 25%;
+}
+
+.bottomItems a 
+{
+  text-decoration: none;
+  color: #0e3559; 
+  font-size: 1.5rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
 
