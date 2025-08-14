@@ -111,6 +111,13 @@
 
 /* phone */
 @media (max-width: 576px) {
+
+    .brand-text {
+        display: none;
+    }
+    .header-content {
+        flex-direction: row;
+    }
   .hero-title {
     font-size: 1.8rem;
   }
