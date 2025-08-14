@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}SHPE UVA | Leading Hispanics in STEM{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <!-- Top Navigation Bar -->
+    <header>
+        <!-- header of page section -->
+        <div class="TopBar">
+            <img
+                class="logo"
+                src="https://shpe.org/wp-content/uploads/2022/06/shpe-logo.png"
+                alt="SHPE Logo"
+            />
+            <h1>The Society of Hispanic Professional Engineers at UVA</h1>
+        </div>
+        <nav>
+            <ul class="nav_links">
+                <li class="item"><a href="{% url 'website:index' %}">Home</a></li>
+                <li class="item"><a href="#get_involved">Get Involved</a></li>
+                <li class="item"><a href="#alumni">Alumni</a></li>
+                <li class="item"><a href="{% url 'website:eBoard' %}">E-Board</a></li>
+                <li class="item"><a href="#contact_us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- section that follows the header below  -->
+
+    <section class="about_us">
+        <img class= "rotunda" src="https://news.virginia.edu/sites/default/files/uva_east_rotunda_sunset_0.jpg" alt="">
+        <div class = "about_us_text">
+            <h2 class="shpe">Society of Hispanic Professional Engineers</h2>
+            <p class="belowSHPE">The Society of Hispanic Professional Engineers (SHPE): Our mission is to promote engineering in the Hispanic/Latino community through recruitment and retention, support diversity in the community, and encourage academic, personal and professional growth among our members. We also sponsor career development programs, workshops, and social events.</p>
+        </div>
+    </section>
+
+
+     <!-- calender -->        
+    <section class="events-section" id="events">
+        <h2 class="section-heading">Upcoming Events</h2>
+            <div class="events-container">
+        <!-- new calender -->
+            <iframe
+                src="https://calendar.google.com/calendar/embed?src=your_dummy_calendar_id%40group.calendar.google.com&ctz=America%2FChicago"
+                allowfullscreen
+            ></iframe>
+            </div>
+    </section>
+
+    <section class="join_btn_section">
+        <div class="btn_image_wrapper">
+          <img class="convention_pic" src="https://res.cloudinary.com/scalefunder/image/upload/c_crop,h_2282,w_4032,x_0,y_638/v1/Cal_Poly/o8xljjyslwfao3dzbczz" alt="About Us"/>
+          <div class="overlay"></div> <!-- Semi-transparent overlay -->
+          <p class="join_caption">Want to Become a National Member?</p>
+          <a href="https://shpe.org/engage/events/national-convention/" target="_blank" class="become-member">Join SHPE National </a>
+        </div>
+      </section>
+    <!-- mission -->
+      <section class="mission"> 
+     
+        <div class="mission-info">
+            <h2 class="mission-message-header">Our Mission</h2>
+            <p class="mission-text">
+                SHPE changes lives by empowering the Hispanic community to realize its fullest potential and to impact the world through STEM awareness, access, support, and development. 
+                We are brought together by heritage, social responsibility, and a desire to improve equality for all people through the use of science and technology. We value excellence 
+                in education, professional pursuits, and leadership. We obtain excellence through integrity, empowerment, achievement, diversity, and continuous improvement. We fulfill 
+                our mission by increasing educational opportunities, promoting professional and personal growth, carrying out our social responsibility to be involved in education, business, 
+                and government issues, and enhancing pride within our organization while reinforcing our reputation as a vital Hispanic organization.
+            </p>
+            <a href="https://shpe.org/about-shpe/" class="learn-more-btn">Learn More</a>
+        </div>
+        <div class="mission-image">
+            <img class="jits_img" src="https://i.pinimg.com/736x/7a/e9/54/7ae954388490584a6ba6d1180ed657b8.jpg" alt="SHPE Mission Image">
+        </div>
+    </section>
+
+    <section class="JuntosPodemos"> 
+        <div class="jp-image">
+            <img class="jp-img" src="https://images.pistonheads.com/nimg/47438/blobid0.jpg" alt="SHPE Mission Image">
+        </div>
+        <div class="JuntosPodemos-info">
+            <h1 class="JuntosPodemos-header">Juntos Podemos</h1>
+            <p class="JuntosPodemos-text">This event will welcome high school juniors and seniors from different parts of Virginia to explore UVA with current SHPE students. </p>
+            <a href="https://forms.gle/qeGMae8UZAdHihvPA" class="learn-more-btn">Join Juntos Podemos</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="bottomSection">
+            <div class="bottomSectionLeft ">
+                <img src="https://media.licdn.com/dms/image/v2/C4E03AQH42eSp-nRRFw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1619054837717?e=1747267200&v=beta&t=mJpflPgObxBCLOvZZ29UC78cB5icAH0Rm9T0OvoydNs" alt="ShpeAtUVA">
+            </div>
+            <div class = "bottomSectionRight">
+                <h1> Follow us on our Social Medias! </h1>
+                <a href="https://www.instagram.com/shpe_uva/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/260px-Instagram_logo_2022.svg.png" alt="insta"></a>
+                <a href="https://www.linkedin.com/in/shpe-at-uva-a08226210/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png?20140125013055" alt="linkedin"></a>
+
+            </div>
+            <div class="bottomSectionFarRight">
+                <ul class="bottomItems">
+                    <li class="bottomItem"><a href="#get_involved">Get Involved</a></li>
+                    <li class="bottomItem"><a href="#alumni">Alumni</a></li>
+                    <li class="bottomItem"><a href="eBoard.html">E-Board</a></li>
+                    <li class="bottomItem"><a href="#contact_us">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,25 +1,14 @@
-General Reset
+/* General Reset */
 *{
   box-sizing: border-box;
-  /*removes default browser margins and padding for a clean slate */
   margin: 0; 
   padding: 0; 
-  .item 
-  {
-  background: gray;
-  width: 50px;
-  height: 50px;
-  margin: 0 5px;
 }
 
 /* FIXING SCROLL AREA WHITE SPACE */
-::-webkit-scrollbar
-{
-
+::-webkit-scrollbar{
   width: 0px; /* removes the  space */
   background: transparent; /*  scrollbar transparent */
-}
-   
 }
 html, body {
   overflow-x: hidden; /* Prevents horizontal scroll */

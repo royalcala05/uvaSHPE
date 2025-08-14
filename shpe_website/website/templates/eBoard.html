@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}SHPE UVA E-Board | Leading Hispanics in STEM{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <!-- Top Navigation Bar -->
+    <header>
+        <!-- header of page section -->
+        <div class="TopBar">
+            <img
+                class="logo"
+                src="https://shpe.org/wp-content/uploads/2022/06/shpe-logo.png"
+                alt="SHPE Logo"
+            />
+            <h1>The Society of Hispanic Professional Engineers at UVA</h1>
+        </div>
+        <nav>
+            <ul class="nav_links">
+                <li class="item1"><a href="{% url 'website:index' %}">Home</a></li>
+                <li class="item1"><a href="#get_involved">Get Involved</a></li>
+                <li class="item1"><a href="#alumni">Alumni</a></li>
+                <li class="item1"><a href="{% url 'website:eBoard' %}">E-Board</a></li>
+                <li class="item1"><a href="#contact_us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class = "meetTeamdiv">
+    <h1 class = "meetTeam"> Meet our 2025 Exec Board! </h1>
+</div>
+
+
+
+<div class="execSection">
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQEXrgjM0msoIQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726076434064?e=1747267200&v=beta&t=r8lIOmouf6_Gf1MexmgJCDqENTxezMxQvjZTXyMmuxw" alt="Roy Alcala">
+        <span class="caption">Roy Alcala: Community Outreach</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/C4E03AQEm6wF4idVFgQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1663613642454?e=1747267200&v=beta&t=8MUGK3VvFNTLriig_RqicHJ9436zuv-rvoUOLjAhhyo" alt="neda">
+        <span class="caption">Neda Rehan: Co - President</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFyhldWQ6rOBA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1674624911825?e=1747267200&v=beta&t=oQI66Fg39HckHtc69P-rCdLhNq-YfBGZ7cdUrNTVvJ4" alt="Sal">
+        <span class="caption">Salvador Adrian: Co - President</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQE6zQc0d2x_iQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725246632161?e=1747267200&v=beta&t=TW08SFvN19rMfEgeKajm82hLQwE4ZhROmioDUhmtUsA" alt="Chris">
+        <span class="caption">Chris Valencia Ventura: Social Chair</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQHsNDfKmL6aGg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718804075434?e=1747267200&v=beta&t=ByO5vffigRRnL10ZYpMHw5v6OTj_djMdIXI1r5ASuEE" alt="Madison">
+        <span class="caption">Madison Sejas: Vice President</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQEbEb8GH5l_oA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723647398452?e=1747267200&v=beta&t=PGD-AWkKXsShDS2zi1_pl2Umm711ESGBYBX4DSail0k" alt="Clarisse">
+        <span class="caption">Clarisse Forro: Treasurer </span>
+    </div>
+</div>
+<div class="execSection">
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQHmKVqNO5tCgw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730763964185?e=1747267200&v=beta&t=bE5Uc7rap-xhCuFI0WsSFo9nNfYKSVv5iO_fACID05M" alt="Esther Caso Robles">
+        <span class="caption">Esther Casco Robles: Secretary</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQG0ZzW2AvJzMg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1715324577545?e=1747267200&v=beta&t=4D_fLugpgUIJxAFiPkjQxPJq6iU436VCAqFTsRKnGY" alt="Jesus Flores">
+        <span class="caption">Jeuses Flores: Marketing</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQHabDOyHzs7gw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731037845325?e=1747267200&v=beta&t=LfmgLGFui5wVwxOeHSn34O7AXkCLSeYPJz8GUGU_xOU" alt="Luis Ramos">
+        <span class="caption">Luis Ramos: Corporate Relations</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQG4QeLqEfRYNA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1699555316433?e=1747267200&v=beta&t=kcpRzhBcxWTRSaf_QToh9MxQc55tNyedfVlhpUhIUYo" alt="Giselle Alas">
+        <span class="caption">Giselle Alas: Co - Convetion Chair</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQE_nvMgzU7pmA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725277406961?e=1747267200&v=beta&t=ZqPcAcj8KCvnwT9fsP6aJsdHVlZSANsxjRiKvWq558I" alt="Jimmy Sejas">
+        <span class="caption">Jimmy Sejas: Co - Convetion Chair</span>
+    </div>
+
+    <div class="item2">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQEQhe_nr7Epzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722384845087?e=1747267200&v=beta&t=7BTn-j7y2Ix_7uSiD0gJpZmxOFUmpcneR4rotj_76Po" alt="Hazel Miranda">
+        <span class="caption">Hazel Miranda: First Year Rep</span>
+    </div>
+</div>
+</div>
+{% endblock %}
