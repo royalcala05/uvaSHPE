@@ -34,6 +34,11 @@
   .exec-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
+  
+  .alumni-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 1200px;
+  }
 }
 
 /* small tablet */
@@ -118,6 +123,23 @@
     grid-template-columns: 1fr;
     max-width: 400px;
     margin: 3rem auto 0;
+  }
+  
+  .alumni-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 3rem auto 0;
+  }
+  
+  .alumni-card {
+    padding: 1.5rem 1.3rem;
+    max-width: 350px;
+    max-height: 550px;
+  }
+  
+  .alumni-photo {
+    width: 100px;
+    height: 100px;
   }
   
   .hero-cta .btn-primary-modern,

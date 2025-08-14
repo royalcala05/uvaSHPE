@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}SHPE UVA Alumni | Professional Network{% endblock %}
+
+{% block content %}
+<section class="content-section" style="background: linear-gradient(135deg, #0e3559 0%, #1a4b73 100%); color: white; padding: 4rem 0;">
+    <div class="container text-center">
+        <h1 class="hero-title" style="color: white; margin-bottom: 1rem;">Our Alumni Network</h1>
+        <p class="hero-subtitle" style="color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto;">
+            Connect with our accomplished alumni who are making an impact across industries and changing the world through STEM.
+        </p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        {% if total_alumni > 0 %}
+        <div class="alumni-stats">
+            <h3>{{ total_alumni }} Strong and Growing</h3>
+            <p>Alumni making an impact across the engineering and technology industries</p>
+        </div>
+        {% endif %}
+
+        {% if featured_alumni %}
+        <div class="featured-alumni">
+            <div class="section-header">
+                <h2 class="section-title">Featured Alumni</h2>
+                <p class="section-subtitle">Spotlight on some of our most accomplished graduates</p>
+            </div>
+            
+            <div class="alumni-grid">
+                {% for alumni in featured_alumni %}
+                <div class="alumni-card">
+                    <div class="alumni-year-badge">Class of {{ alumni.graduation_year }}</div>
+                    
+                    {% if alumni.headshot %}
+                    <img src="{{ alumni.headshot.url }}" alt="{{ alumni.name }}" class="alumni-photo">
+                    {% else %}
+                    <img src="{% static 'images/default-avatar.svg' %}" alt="{{ alumni.name }}" class="alumni-photo" style="opacity: 0.8;">
+                    {% endif %}
+                    
+                    <h3 class="alumni-name">{{ alumni.name }}</h3>
+                    <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
+                    
+                    {% if alumni.position %}
+                    <div class="alumni-title">{{ alumni.position }}</div>
+                    {% endif %}
+                    
+                    {% if alumni.company %}
+                    <div class="alumni-company">{{ alumni.company }}</div>
+                    {% endif %}
+                    
+                    {% if alumni.shpe_status %}
+                    <div class="alumni-shpe-status">SHPE UVA {{ alumni.get_shpe_status_display }}</div>
+                    {% endif %}
+                    
+                    {% if alumni.bio %}
+                    <div class="alumni-bio">{{ alumni.bio|truncatewords:25 }}</div>
+                    {% endif %}
+                    
+                    <div class="alumni-social">
+                        {% if alumni.linkedin_url %}
+                        <a href="{{ alumni.linkedin_url }}" target="_blank" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        {% endif %}
+                        <a href="mailto:{{ alumni.email }}" aria-label="Email">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+                    </div>
+                    
+                    <a href="mailto:{{ alumni.email }}" class="alumni-contact-btn">Contact {{ alumni.name|truncatewords:1|cut:" " }}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if other_alumni %}
+        <div class="section-header">
+            <h2 class="section-title">Alumni Directory</h2>
+            <p class="section-subtitle">All our graduates making a difference in the world</p>
+        </div>
+        
+        <div class="alumni-grid">
+            {% for alumni in other_alumni %}
+            <div class="alumni-card">
+                <div class="alumni-year-badge">Class of {{ alumni.graduation_year }}</div>
+                
+                {% if alumni.headshot %}
+                <img src="{{ alumni.headshot.url }}" alt="{{ alumni.name }}" class="alumni-photo">
+                {% else %}
+                <img src="{% static 'images/default-avatar.svg' %}" alt="{{ alumni.name }}" class="alumni-photo" style="opacity: 0.8;">
+                {% endif %}
+                
+                <h3 class="alumni-name">{{ alumni.name }}</h3>
+                <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
+                
+                {% if alumni.position %}
+                <div class="alumni-title">{{ alumni.position }}</div>
+                {% endif %}
+                
+                {% if alumni.company %}
+                <div class="alumni-company">{{ alumni.company }}</div>
+                {% endif %}
+                
+                {% if alumni.shpe_status %}
+                <div class="alumni-shpe-status">SHPE UVA {{ alumni.get_shpe_status_display }}</div>
+                {% endif %}
+                
+                {% if alumni.bio %}
+                <div class="alumni-bio">{{ alumni.bio|truncatewords:25 }}</div>
+                {% endif %}
+                
+                <div class="alumni-social">
+                    {% if alumni.linkedin_url %}
+                    <a href="{{ alumni.linkedin_url }}" target="_blank" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    {% endif %}
+                    <a href="mailto:{{ alumni.email }}" aria-label="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </div>
+                
+                <a href="mailto:{{ alumni.email }}" class="alumni-contact-btn">Contact {{ alumni.name|truncatewords:1|cut:" " }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if not featured_alumni and not other_alumni %}
+        <div class="text-center" style="padding: 4rem 0;">
+            <h3 class="section-title">Alumni Directory Coming Soon</h3>
+            <p class="section-subtitle">We're building our alumni network. Check back soon to connect with our graduates!</p>
+            <div style="margin-top: 2rem;">
+                <a href="{% url 'website:index' %}" class="learn-more-btn">Return Home</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="content-section alt-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title">Join Our Legacy</h2>
+                <p class="section-subtitle">Current SHPE UVA members will join this distinguished network of professionals upon graduation</p>
+                <div style="margin-top: 2rem;">
+                    <a href="https://shpe.org/engage/events/national-convention/" target="_blank" class="btn-primary-modern">Become a Member</a>
+                    <a href="{% url 'website:index' %}" class="learn-more-btn" style="margin-left: 1rem;">Learn More About SHPE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

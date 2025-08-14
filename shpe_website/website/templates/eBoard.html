@@ -1,122 +1,90 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}SHPE UVA Exec | Leading Hispanics in STEM{% endblock %}
+{% block title %}SHPE UVA Leadership | Executive Board{% endblock %}
 
 {% block content %}
-
 <section class="content-section" style="background: linear-gradient(135deg, #0e3559 0%, #1a4b73 100%); color: white; padding: 4rem 0;">
     <div class="container text-center">
-        <h1 class="hero-title" style="color: white; margin-bottom: 1rem;">Our Exec Team</h1>
-        <p class="hero-subtitle" style="color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto;">Meet the dedicated students leading SHPE UVA in 2025, working to empower Hispanic engineers and create opportunities for our community.</p>
+        <h1 class="hero-title" style="color: white; margin-bottom: 1rem;">Our Leadership Team</h1>
+        <p class="hero-subtitle" style="color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto;">
+            Meet the dedicated students leading SHPE UVA in 2025, working to empower Hispanic engineers and create opportunities for our community.
+        </p>
     </div>
 </section>
 
 <section class="content-section">
     <div class="container">
+        {% if total_exec > 0 %}
         <div class="section-header">
             <h2 class="section-title">2025 Executive Board</h2>
-            <p class="section-subtitle">Our passionate leaders driving change and fostering community</p>
+            <p class="section-subtitle">{{ total_exec }} passionate leaders driving change and fostering community</p>
         </div>
 
+        <div class="alumni-grid">
+            {% for exec in current_exec %}
+            <div class="alumni-card">
+                <div class="alumni-year-badge">{{ exec.get_shpe_status_display }}</div>
+                
+                {% if exec.headshot %}
+                <img src="{{ exec.headshot.url }}" alt="{{ exec.name }}" class="alumni-photo">
+                {% else %}
+                <img src="{% static 'images/default-avatar.svg' %}" alt="{{ exec.name }}" class="alumni-photo" style="opacity: 0.8;">
+                {% endif %}
+                
+                <h3 class="alumni-name">{{ exec.name }}</h3>
+                <div class="alumni-major">{{ exec.major }} • Class of {{ exec.graduation_year }}</div>
+                
+                {% if exec.position %}
+                <div class="alumni-title">{{ exec.position }}</div>
+                {% endif %}
+                
+                {% if exec.company %}
+                <div class="alumni-company">{{ exec.company }}</div>
+                {% endif %}
+                
+                <div class="alumni-shpe-status">{{ exec.get_shpe_status_display }}</div>
+                
+                {% if exec.bio %}
+                <div class="alumni-bio">{{ exec.bio|truncatewords:20 }}</div>
+                {% endif %}
+                
+                <div class="alumni-social">
+                    {% if exec.linkedin_url %}
+                    <a href="{{ exec.linkedin_url }}" target="_blank" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    {% endif %}
+                    <a href="mailto:{{ exec.email }}" aria-label="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </div>
+                
+                <a href="mailto:{{ exec.email }}" class="alumni-contact-btn">Contact {{ exec.name|truncatewords:1|cut:" " }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center" style="padding: 4rem 0;">
+            <h3 class="section-title">Executive Board Information Coming Soon</h3>
+            <p class="section-subtitle">We're updating our leadership information. Check back soon!</p>
+            <div style="margin-top: 2rem;">
+                <a href="{% url 'website:index' %}" class="learn-more-btn">Return Home</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
 
-        <div class="exec-grid">
-
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/C4E03AQEm6wF4idVFgQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1663613642454?e=1747267200&v=beta&t=8MUGK3VvFNTLriig_RqicHJ9436zuv-rvoUOLjAhhyo" alt="Neda Rehan">
-                <div class="exec-info">
-                    <h3 class="exec-name">Neda Rehan</h3>
-                    <p class="exec-position">Co-President</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4D03AQFyhldWQ6rOBA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1674624911825?e=1747267200&v=beta&t=oQI66Fg39HckHtc69P-rCdLhNq-YfBGZ7cdUrNTVvJ4" alt="Salvador Adrian">
-                <div class="exec-info">
-                    <h3 class="exec-name">Salvador Adrian</h3>
-                    <p class="exec-position">Co-President</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQHsNDfKmL6aGg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718804075434?e=1747267200&v=beta&t=ByO5vffigRRnL10ZYpMHw5v6OTj_djMdIXI1r5ASuEE" alt="Madison Sejas">
-                <div class="exec-info">
-                    <h3 class="exec-name">Madison Sejas</h3>
-                    <p class="exec-position">Vice President</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHmKVqNO5tCgw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730763964185?e=1747267200&v=beta&t=bE5Uc7rap-xhCuFI0WsSFo9nNfYKSVv5iO_fACID05M" alt="Esther Casco Robles">
-                <div class="exec-info">
-                    <h3 class="exec-name">Esther Casco Robles</h3>
-                    <p class="exec-position">Secretary</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQEbEb8GH5l_oA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723647398452?e=1747267200&v=beta&t=PGD-AWkKXsShDS2zi1_pl2Umm711ESGBYBX4DSail0k" alt="Clarisse Forro">
-                <div class="exec-info">
-                    <h3 class="exec-name">Clarisse Forro</h3>
-                    <p class="exec-position">Treasurer</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQE6zQc0d2x_iQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725246632161?e=1747267200&v=beta&t=TW08SFvN19rMfEgeKajm82hLQwE4ZhROmioDUhmtUsA" alt="Chris Valencia Ventura">
-                <div class="exec-info">
-                    <h3 class="exec-name">Chris Valencia Ventura</h3>
-                    <p class="exec-position">Social Chair</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQG0ZzW2AvJzMg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1715324577545?e=1747267200&v=beta&t=4D_fLugpgUIJxAFiPkjQxPJq6iU436VCAqFTsRKnGY" alt="Jesus Flores">
-                <div class="exec-info">
-                    <h3 class="exec-name">Jesus Flores</h3>
-                    <p class="exec-position">Marketing</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQHabDOyHzs7gw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731037845325?e=1747267200&v=beta&t=LfmgLGFui5wVwxOeHSn34O7AXkCLSeYPJz8GUGU_xOU" alt="Luis Ramos">
-                <div class="exec-info">
-                    <h3 class="exec-name">Luis Ramos</h3>
-                    <p class="exec-position">Corporate Relations</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQEXrgjM0msoIQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726076434064?e=1747267200&v=beta&t=r8lIOmouf6_Gf1MexmgJCDqENTxezMxQvjZTXyMmuxw" alt="Roy Alcala">
-                <div class="exec-info">
-                    <h3 class="exec-name">Roy Alcala</h3>
-                    <p class="exec-position">Community Outreach</p>
-                </div>
-            </div>
-            
-
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D5603AQG4QeLqEfRYNA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1699555316433?e=1747267200&v=beta&t=kcpRzhBcxWTRSaf_QToh9MxQc55tNyedfVlhpUhIUYo" alt="Giselle Alas">
-                <div class="exec-info">
-                    <h3 class="exec-name">Giselle Alas</h3>
-                    <p class="exec-position">Co-Convention Chair</p>
-                </div>
-            </div>
-            
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQE_nvMgzU7pmA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725277406961?e=1747267200&v=beta&t=ZqPcAcj8KCvnwT9fsP6aJsdHVlZSANsxjRiKvWq558I" alt="Jimmy Sejas">
-                <div class="exec-info">
-                    <h3 class="exec-name">Jimmy Sejas</h3>
-                    <p class="exec-position">Co-Convention Chair</p>
-                </div>
-            </div>
-            
-
-            <div class="exec-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4D03AQEQhe_nr7Epzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722384845087?e=1747267200&v=beta&t=7BTn-j7y2Ix_7uSiD0gJpZmxOFUmpcneR4rotj_76Po" alt="Hazel Miranda">
-                <div class="exec-info">
-                    <h3 class="exec-name">Hazel Miranda</h3>
-                    <p class="exec-position">First Year Representative</p>
+<section class="content-section alt-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title">Interested in Leadership?</h2>
+                <p class="section-subtitle">SHPE UVA leadership positions are available to active members who want to make a difference in our community</p>
+                <div style="margin-top: 2rem;">
+                    <a href="https://shpe.org/engage/events/national-convention/" target="_blank" class="btn-primary-modern">Join SHPE UVA</a>
+                    <a href="{% url 'website:alumni' %}" class="learn-more-btn" style="margin-left: 1rem;">View Alumni</a>
                 </div>
             </div>
         </div>

@@ -153,3 +153,208 @@
   border: none;
   border-radius: 10px;
 }
+
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  justify-items: center;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alumni-card {
+  background: linear-gradient(145deg, #2c3e50, #34495e);
+  border-radius: 20px;
+  padding: 2rem 1.8rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  max-height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.alumni-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.alumni-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #ff8a60);
+}
+
+.alumni-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  margin: 0 auto 1rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.alumni-card:hover .alumni-photo {
+  transform: scale(1.05);
+}
+
+.alumni-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: white;
+}
+
+.alumni-title {
+  font-size: 1.1rem;
+  color: #ff6b35;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+.alumni-company {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+  text-transform: capitalize;
+}
+
+.alumni-major {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.7rem;
+  font-style: italic;
+}
+
+.alumni-shpe-status {
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: linear-gradient(45deg, #0e3559, #1a4b73);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(14, 53, 89, 0.3);
+}
+
+.alumni-bio {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+.alumni-social {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.alumni-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.alumni-social a:hover {
+  background: #ff6b35;
+  transform: translateY(-2px);
+}
+
+.alumni-contact-btn {
+  background: linear-gradient(45deg, #ff6b35, #ff8a60);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.alumni-contact-btn:hover {
+  background: linear-gradient(45deg, #ff5722, #ff6b35);
+  transform: translateY(-2px);
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+.featured-alumni {
+  margin-bottom: 4rem;
+}
+
+.featured-alumni .alumni-card {
+  background: linear-gradient(145deg, #0e3559, #1a4b73);
+  border: 2px solid rgba(255, 107, 53, 0.3);
+}
+
+.featured-alumni .alumni-card::before {
+  height: 6px;
+  background: linear-gradient(90deg, #ff6b35, #0e3559);
+}
+
+.alumni-year-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 107, 53, 0.9);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.alumni-stats {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.alumni-stats h3 {
+  color: #0e3559;
+  margin-bottom: 0.5rem;
+}
+
+.alumni-stats p {
+  color: #6c757d;
+  margin: 0;
+}
