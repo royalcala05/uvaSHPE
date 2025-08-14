@@ -1,0 +1,112 @@
+
+.content-section {
+  padding: 5rem 0;
+}
+
+.content-section.alt-bg {
+  background-color: #f8f9fa;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  color: #0e3559;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, rgba(14, 53, 89, 0.95), rgba(26, 75, 115, 0.95)), 
+              url('https://news.virginia.edu/sites/default/files/uva_east_rotunda_sunset_0.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 6rem 0;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-content h2,
+.mission-content h2 {
+  color: #0e3559;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-content p,
+.mission-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.events-section {
+  background: linear-gradient(135deg, #0e3559 0%, #1a4b73 100%);
+  color: white;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.95), rgba(255, 138, 96, 0.95)),
+              url('https://res.cloudinary.com/scalefunder/image/upload/c_crop,h_2282,w_4032,x_0,y_638/v1/Cal_Poly/o8xljjyslwfao3dzbczz');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 6rem 0;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

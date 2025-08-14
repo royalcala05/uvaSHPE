@@ -1,0 +1,83 @@
+.modern-footer {
+  background: linear-gradient(135deg, #0e3559 0%, #1a4b73 100%);
+  color: white;
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  height: 50px;
+  width: auto;
+}
+
+.footer-brand h5 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.footer-tagline {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0 1rem;
+}
+
+.copyright {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}

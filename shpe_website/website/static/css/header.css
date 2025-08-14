@@ -1,0 +1,89 @@
+.modern-header {
+  background: linear-gradient(135deg, #0e3559 0%, #1a4b73 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-logo {
+  height: 60px;
+  width: auto;
+}
+
+.brand-text h1.organization-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+.organization-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 400;
+}
+
+.modern-header .navbar {
+  padding: 0;
+}
+
+.modern-header .navbar-toggler {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  padding: 0.5rem;
+}
+
+.modern-header .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+.modern-header .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.modern-header .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  padding: 0.75rem 1rem !important;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.modern-header .nav-link:hover {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.modern-header .nav-link.btn-join {
+  background: linear-gradient(45deg, #ff6b35, #ff8a60);
+  color: white !important;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.modern-header .nav-link.btn-join:hover {
+  background: linear-gradient(45deg, #ff5722, #ff6b35);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
