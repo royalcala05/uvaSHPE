@@ -14,7 +14,6 @@
   .header-content {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
   }
   
   .about-grid,
