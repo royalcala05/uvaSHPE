@@ -8,6 +8,10 @@ db.sqlite3
 
 # Virtual environments
 webapp/
+shpe_env/
+venv/
+env/
+.venv/
 
 # IDEs and editors
 .vscode/

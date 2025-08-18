@@ -24,7 +24,23 @@
         <div class="alumni-grid">
             {% for exec in current_exec %}
             <div class="alumni-card">
-                <div class="alumni-year-badge">{{ exec.get_shpe_status_display }}</div>
+                <div class="alumni-year-badge">
+                    {% if exec.shpe_status == 'member' %}Member
+                    {% elif exec.shpe_status == 'officer' %}Officer
+                    {% elif exec.shpe_status == 'secretary' %}Secretary
+                    {% elif exec.shpe_status == 'treasurer' %}Treasurer
+                    {% elif exec.shpe_status == 'vice_president' %}VP
+                    {% elif exec.shpe_status == 'co_president' %}Co-President
+                    {% elif exec.shpe_status == 'president' %}President
+                    {% elif exec.shpe_status == 'social_chair' %}Social Chair
+                    {% elif exec.shpe_status == 'marketing' %}Marketing
+                    {% elif exec.shpe_status == 'corporate_relations' %}Corp Relations
+                    {% elif exec.shpe_status == 'community_outreach' %}Outreach
+                    {% elif exec.shpe_status == 'convention_chair' %}Convention
+                    {% elif exec.shpe_status == 'first_year_rep' %}First Year Rep
+                    {% elif exec.shpe_status == 'spiderman' %}WebMaster
+                    {% else %}Member{% endif %}
+                </div>
                 
                 {% if exec.headshot %}
                 <img src="{{ exec.headshot.url }}" alt="{{ exec.name }}" class="alumni-photo">
@@ -42,8 +58,6 @@
                 {% if exec.company %}
                 <div class="alumni-company">{{ exec.company }}</div>
                 {% endif %}
-                
-                <div class="alumni-shpe-status">{{ exec.get_shpe_status_display }}</div>
                 
                 {% if exec.bio %}
                 <div class="alumni-bio">{{ exec.bio|truncatewords:20 }}</div>

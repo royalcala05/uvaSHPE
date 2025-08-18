@@ -32,28 +32,40 @@
             <div class="alumni-grid">
                 {% for alumni in featured_alumni %}
                 <div class="alumni-card">
-                    <div class="alumni-year-badge">Class of {{ alumni.graduation_year }}</div>
-                    
-                    {% if alumni.headshot %}
-                    <img src="{{ alumni.headshot.url }}" alt="{{ alumni.name }}" class="alumni-photo">
-                    {% else %}
-                    <img src="{% static 'images/default-avatar.svg' %}" alt="{{ alumni.name }}" class="alumni-photo" style="opacity: 0.8;">
-                    {% endif %}
-                    
-                    <h3 class="alumni-name">{{ alumni.name }}</h3>
-                    <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
-                    
-                    {% if alumni.position %}
-                    <div class="alumni-title">{{ alumni.position }}</div>
-                    {% endif %}
-                    
-                    {% if alumni.company %}
-                    <div class="alumni-company">{{ alumni.company }}</div>
-                    {% endif %}
-                    
-                    {% if alumni.shpe_status %}
-                    <div class="alumni-shpe-status">SHPE UVA {{ alumni.get_shpe_status_display }}</div>
-                    {% endif %}
+                                    <div class="alumni-year-badge">
+                    {% if alumni.shpe_status == 'member' %}Member
+                    {% elif alumni.shpe_status == 'officer' %}Officer
+                    {% elif alumni.shpe_status == 'secretary' %}Secretary
+                    {% elif alumni.shpe_status == 'treasurer' %}Treasurer
+                    {% elif alumni.shpe_status == 'vice_president' %}VP
+                    {% elif alumni.shpe_status == 'co_president' %}Co-President
+                    {% elif alumni.shpe_status == 'president' %}President
+                    {% elif alumni.shpe_status == 'social_chair' %}Social Chair
+                    {% elif alumni.shpe_status == 'marketing' %}Marketing
+                    {% elif alumni.shpe_status == 'corporate_relations' %}Corp Relations
+                    {% elif alumni.shpe_status == 'community_outreach' %}Outreach
+                    {% elif alumni.shpe_status == 'convention_chair' %}Convention
+                    {% elif alumni.shpe_status == 'first_year_rep' %}First Year Rep
+                    {% elif alumni.shpe_status == 'spiderman' %}WebMaster
+                    {% else %}Member{% endif %}
+                </div>
+                
+                {% if alumni.headshot %}
+                <img src="{{ alumni.headshot.url }}" alt="{{ alumni.name }}" class="alumni-photo">
+                {% else %}
+                <img src="{% static 'images/default-avatar.svg' %}" alt="{{ alumni.name }}" class="alumni-photo" style="opacity: 0.8;">
+                {% endif %}
+                
+                <h3 class="alumni-name">{{ alumni.name }}</h3>
+                <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
+                
+                {% if alumni.position %}
+                <div class="alumni-title">{{ alumni.position }}</div>
+                {% endif %}
+                
+                {% if alumni.company %}
+                <div class="alumni-company">{{ alumni.company }}</div>
+                {% endif %}
                     
                     {% if alumni.bio %}
                     <div class="alumni-bio">{{ alumni.bio|truncatewords:25 }}</div>
@@ -86,7 +98,23 @@
         <div class="alumni-grid">
             {% for alumni in other_alumni %}
             <div class="alumni-card">
-                <div class="alumni-year-badge">Class of {{ alumni.graduation_year }}</div>
+                <div class="alumni-year-badge">
+                    {% if alumni.shpe_status == 'member' %}Member
+                    {% elif alumni.shpe_status == 'officer' %}Officer
+                    {% elif alumni.shpe_status == 'secretary' %}Secretary
+                    {% elif alumni.shpe_status == 'treasurer' %}Treasurer
+                    {% elif alumni.shpe_status == 'vice_president' %}VP
+                    {% elif alumni.shpe_status == 'co_president' %}Co-President
+                    {% elif alumni.shpe_status == 'president' %}President
+                    {% elif alumni.shpe_status == 'social_chair' %}Social Chair
+                    {% elif alumni.shpe_status == 'marketing' %}Marketing
+                    {% elif alumni.shpe_status == 'corporate_relations' %}Corp Relations
+                    {% elif alumni.shpe_status == 'community_outreach' %}Outreach
+                    {% elif alumni.shpe_status == 'convention_chair' %}Convention
+                    {% elif alumni.shpe_status == 'first_year_rep' %}First Year Rep
+                    {% elif alumni.shpe_status == 'spiderman' %}WebMaster
+                    {% else %}Member{% endif %}
+                </div>
                 
                 {% if alumni.headshot %}
                 <img src="{{ alumni.headshot.url }}" alt="{{ alumni.name }}" class="alumni-photo">
@@ -103,10 +131,6 @@
                 
                 {% if alumni.company %}
                 <div class="alumni-company">{{ alumni.company }}</div>
-                {% endif %}
-                
-                {% if alumni.shpe_status %}
-                <div class="alumni-shpe-status">SHPE UVA {{ alumni.get_shpe_status_display }}</div>
                 {% endif %}
                 
                 {% if alumni.bio %}
