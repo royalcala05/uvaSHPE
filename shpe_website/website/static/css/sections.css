@@ -26,6 +26,7 @@
   margin: 0 auto;
 }
 
+/* Hero Section Animations */
 .hero-section {
   background: linear-gradient(135deg, rgba(14, 53, 89, 0.95), rgba(26, 75, 115, 0.95)), 
               url('https://news.virginia.edu/sites/default/files/uva_east_rotunda_sunset_0.jpg');
@@ -36,35 +37,226 @@
   color: white;
   text-align: center;
   position: relative;
+  overflow: hidden;
+}
+
+/* Animated background gradient */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(14, 53, 89, 0.8) 0%, 
+    rgba(26, 75, 115, 0.9) 50%, 
+    rgba(14, 53, 89, 0.8) 100%);
+  animation: gradientShift 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes gradientShift {
+  0%, 100% { 
+    background: linear-gradient(135deg, 
+      rgba(14, 53, 89, 0.8) 0%, 
+      rgba(26, 75, 115, 0.9) 50%, 
+      rgba(14, 53, 89, 0.8) 100%);
+  }
+  50% { 
+    background: linear-gradient(135deg, 
+      rgba(26, 75, 115, 0.9) 0%, 
+      rgba(14, 53, 89, 0.8) 50%, 
+      rgba(26, 75, 115, 0.9) 100%);
+  }
 }
 
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
+/* Hero title animation */
 .hero-title {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.3s forwards;
 }
 
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero subtitle animation */
 .hero-subtitle {
   font-size: 1.4rem;
   margin-bottom: 2rem;
-  opacity: 0.95;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.6s forwards;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Hero CTA animation */
 .hero-cta {
   display: inline-flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.9s forwards;
+}
+
+/* Floating animation for hero elements */
+.hero-title,
+.hero-subtitle {
+  animation: fadeInUp 1s ease-out forwards, float 6s ease-in-out infinite;
+}
+
+.hero-title {
+  animation-delay: 0.3s, 1.3s;
+}
+
+.hero-subtitle {
+  animation-delay: 0.6s, 1.6s;
+}
+
+.hero-cta {
+  animation: fadeInUp 1s ease-out 0.9s forwards, float 6s ease-in-out infinite;
+  animation-delay: 0.9s, 1.9s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Page-specific hero animations */
+.content-section[style*="background: linear-gradient"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-section[style*="background: linear-gradient"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(14, 53, 89, 0.9) 0%, 
+    rgba(26, 75, 115, 0.95) 50%, 
+    rgba(14, 53, 89, 0.9) 100%);
+  animation: gradientShift 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.content-section[style*="background: linear-gradient"] .container {
+  position: relative;
+  z-index: 2;
+}
+
+.content-section[style*="background: linear-gradient"] .hero-title {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.3s forwards, float 6s ease-in-out infinite;
+  animation-delay: 0.3s, 1.3s;
+}
+
+.content-section[style*="background: linear-gradient"] .hero-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.6s forwards, float 6s ease-in-out infinite;
+  animation-delay: 0.6s, 1.6s;
+}
+
+/* Button hover animations */
+.hero-cta .btn-primary-modern,
+.hero-cta .btn-secondary-modern {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta .btn-primary-modern::before,
+.hero-cta .btn-secondary-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.hero-cta .btn-primary-modern:hover::before,
+.hero-cta .btn-secondary-modern:hover::before {
+  left: 100%;
+}
+
+.hero-cta .btn-primary-modern:hover,
+.hero-cta .btn-secondary-modern:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive animations */
+@media (max-width: 768px) {
+  .hero-title {
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+  }
+  
+  .hero-subtitle {
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+  }
+  
+  .hero-cta {
+    animation: fadeInUp 1s ease-out 0.9s forwards;
+  }
+  
+  /* Disable floating on mobile for better performance */
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  
+  .hero-title { animation-delay: 0.3s; }
+  .hero-subtitle { animation-delay: 0.6s; }
+  .hero-cta { animation-delay: 0.9s; }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before,
+  .content-section[style*="background: linear-gradient"]::before {
+    animation: none;
+  }
+  
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .hero-title { animation-delay: 0.2s; }
+  .hero-subtitle { animation-delay: 0.4s; }
+  .hero-cta { animation-delay: 0.6s; }
 }
 
 .about-content h2,
