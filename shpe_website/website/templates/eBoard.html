@@ -42,11 +42,21 @@
                     {% else %}Member{% endif %}
                 </div>
                 
-                {% if exec.headshot %}
-                <img src="{{ exec.headshot.url }}" alt="{{ exec.name }}" class="alumni-photo">
-                {% else %}
-                <img src="{% static 'images/default-avatar.svg' %}" alt="{{ exec.name }}" class="alumni-photo" style="opacity: 0.8;">
-                {% endif %}
+                <div class="alumni-photo-container">
+                    {% if exec.headshot %}
+                    <img src="{% static 'images/default-avatar.svg' %}" 
+                         data-src="{{ exec.headshot.url }}" 
+                         alt="{{ exec.name }}" 
+                         class="alumni-photo lazy-image"
+                         loading="lazy">
+                    {% else %}
+                    <img src="{% static 'images/default-avatar.svg' %}" 
+                         alt="{{ exec.name }}" 
+                         class="alumni-photo" 
+                         style="opacity: 0.8;">
+                    {% endif %}
+                    <div class="loading-spinner"></div>
+                </div>
                 
                 <h3 class="alumni-name">{{ exec.name }}</h3>
                 <div class="alumni-major">{{ exec.major }} • Class of {{ exec.graduation_year }}</div>
@@ -60,7 +70,7 @@
                 {% endif %}
                 
                 {% if exec.bio %}
-                <div class="alumni-bio">{{ exec.bio|truncatewords:20 }}</div>
+                <div class="alumni-bio">{{ exec.bio }}</div>
                 {% endif %}
                 
                 <div class="alumni-social">
@@ -96,12 +106,72 @@
             <div class="col-lg-8 text-center">
                 <h2 class="section-title">Interested in Leadership?</h2>
                 <p class="section-subtitle">SHPE UVA leadership positions are available to active members who want to make a difference in our community</p>
-                <div style="margin-top: 2rem;">
+                <div class="learn-more-btn-container">
                     <a href="https://shpe.org/engage/events/national-convention/" target="_blank" class="btn-primary-modern">Join SHPE UVA</a>
-                    <a href="{% url 'website:alumni' %}" class="learn-more-btn" style="margin-left: 1rem;">View Alumni</a>
+                    <a href="{% url 'website:index' %}" class="btn-secondary-modern">Learn More About SHPE</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Lazy loading functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const container = img.closest('.alumni-photo-container');
+                    const spinner = container.querySelector('.loading-spinner');
+                    
+                    // Show loading spinner
+                    if (spinner) {
+                        spinner.style.display = 'block';
+                    }
+                    
+                    // Load the actual image
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-image');
+                    
+                    // Hide spinner and show image when loaded
+                    img.onload = function() {
+                        if (spinner) {
+                            spinner.style.display = 'none';
+                        }
+                        img.style.opacity = '1';
+                    };
+                    
+                    // Handle load errors
+                    img.onerror = function() {
+                        if (spinner) {
+                            spinner.style.display = 'none';
+                        }
+                        img.src = "{% static 'images/default-avatar.svg' %}";
+                        img.style.opacity = '0.8';
+                    };
+                    
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px', // Start loading 50px before the image comes into view
+            threshold: 0.01
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-image');
+        });
+    }
+});
+</script>
 {% endblock %}

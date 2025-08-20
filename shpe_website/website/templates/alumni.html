@@ -32,43 +32,53 @@
             <div class="alumni-grid">
                 {% for alumni in featured_alumni %}
                 <div class="alumni-card">
-                                    <div class="alumni-year-badge">
-                    {% if alumni.shpe_status == 'member' %}Member
-                    {% elif alumni.shpe_status == 'officer' %}Officer
-                    {% elif alumni.shpe_status == 'secretary' %}Secretary
-                    {% elif alumni.shpe_status == 'treasurer' %}Treasurer
-                    {% elif alumni.shpe_status == 'vice_president' %}VP
-                    {% elif alumni.shpe_status == 'co_president' %}Co-President
-                    {% elif alumni.shpe_status == 'president' %}President
-                    {% elif alumni.shpe_status == 'social_chair' %}Social Chair
-                    {% elif alumni.shpe_status == 'marketing' %}Marketing
-                    {% elif alumni.shpe_status == 'corporate_relations' %}Corp Relations
-                    {% elif alumni.shpe_status == 'community_outreach' %}Outreach
-                    {% elif alumni.shpe_status == 'convention_chair' %}Convention
-                    {% elif alumni.shpe_status == 'first_year_rep' %}First Year Rep
-                    {% elif alumni.shpe_status == 'spiderman' %}WebMaster
-                    {% else %}Member{% endif %}
-                </div>
-                
-                {% if alumni.headshot %}
-                <img src="{{ alumni.headshot.url }}" alt="{{ alumni.name }}" class="alumni-photo">
-                {% else %}
-                <img src="{% static 'images/default-avatar.svg' %}" alt="{{ alumni.name }}" class="alumni-photo" style="opacity: 0.8;">
-                {% endif %}
-                
-                <h3 class="alumni-name">{{ alumni.name }}</h3>
-                <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
-                
-                {% if alumni.position %}
-                <div class="alumni-title">{{ alumni.position }}</div>
-                {% endif %}
-                
-                {% if alumni.company %}
-                <div class="alumni-company">{{ alumni.company }}</div>
-                {% endif %}
+                    <div class="alumni-year-badge">
+                        {% if alumni.shpe_status == 'member' %}Member
+                        {% elif alumni.shpe_status == 'officer' %}Officer
+                        {% elif alumni.shpe_status == 'secretary' %}Secretary
+                        {% elif alumni.shpe_status == 'treasurer' %}Treasurer
+                        {% elif alumni.shpe_status == 'vice_president' %}VP
+                        {% elif alumni.shpe_status == 'co_president' %}Co-President
+                        {% elif alumni.shpe_status == 'president' %}President
+                        {% elif alumni.shpe_status == 'social_chair' %}Social Chair
+                        {% elif alumni.shpe_status == 'marketing' %}Marketing
+                        {% elif alumni.shpe_status == 'corporate_relations' %}Corp Relations
+                        {% elif alumni.shpe_status == 'community_outreach' %}Outreach
+                        {% elif alumni.shpe_status == 'convention_chair' %}Convention
+                        {% elif alumni.shpe_status == 'first_year_rep' %}First Year Rep
+                        {% elif alumni.shpe_status == 'spiderman' %}WebMaster
+                        {% else %}Member{% endif %}
+                    </div>
                     
+                    <div class="alumni-photo-container">
+                        {% if alumni.headshot %}
+                        <img src="{% static 'images/default-avatar.svg' %}" 
+                             data-src="{{ alumni.headshot.url }}" 
+                             alt="{{ alumni.name }}" 
+                             class="alumni-photo lazy-image"
+                             loading="lazy">
+                        {% else %}
+                        <img src="{% static 'images/default-avatar.svg' %}" 
+                             alt="{{ alumni.name }}" 
+                             class="alumni-photo" 
+                             style="opacity: 0.8;">
+                        {% endif %}
+                        <div class="loading-spinner"></div>
+                    </div>
+                    
+                    <h3 class="alumni-name">{{ alumni.name }}</h3>
+                    <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
+                    
+                    {% if alumni.position %}
+                    <div class="alumni-title">{{ alumni.position }}</div>
+                    {% endif %}
+                    
+                    {% if alumni.company %}
+                    <div class="alumni-company">{{ alumni.company }}</div>
+                    {% endif %}
+                        
                     {% if alumni.bio %}
-                    <div class="alumni-bio">{{ alumni.bio|truncatewords:25 }}</div>
+                    <div class="alumni-bio">{{ alumni.bio }}</div>
                     {% endif %}
                     
                     <div class="alumni-social">
@@ -116,11 +126,21 @@
                     {% else %}Member{% endif %}
                 </div>
                 
-                {% if alumni.headshot %}
-                <img src="{{ alumni.headshot.url }}" alt="{{ alumni.name }}" class="alumni-photo">
-                {% else %}
-                <img src="{% static 'images/default-avatar.svg' %}" alt="{{ alumni.name }}" class="alumni-photo" style="opacity: 0.8;">
-                {% endif %}
+                <div class="alumni-photo-container">
+                    {% if alumni.headshot %}
+                    <img src="{% static 'images/default-avatar.svg' %}" 
+                         data-src="{{ alumni.headshot.url }}" 
+                         alt="{{ alumni.name }}" 
+                         class="alumni-photo lazy-image"
+                         loading="lazy">
+                    {% else %}
+                    <img src="{% static 'images/default-avatar.svg' %}" 
+                         alt="{{ alumni.name }}" 
+                         class="alumni-photo" 
+                         style="opacity: 0.8;">
+                    {% endif %}
+                    <div class="loading-spinner"></div>
+                </div>
                 
                 <h3 class="alumni-name">{{ alumni.name }}</h3>
                 <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
@@ -132,9 +152,9 @@
                 {% if alumni.company %}
                 <div class="alumni-company">{{ alumni.company }}</div>
                 {% endif %}
-                
+                    
                 {% if alumni.bio %}
-                <div class="alumni-bio">{{ alumni.bio|truncatewords:25 }}</div>
+                <div class="alumni-bio">{{ alumni.bio }}</div>
                 {% endif %}
                 
                 <div class="alumni-social">
@@ -156,8 +176,8 @@
 
         {% if not featured_alumni and not other_alumni %}
         <div class="text-center" style="padding: 4rem 0;">
-            <h3 class="section-title">Alumni Directory Coming Soon</h3>
-            <p class="section-subtitle">We're building our alumni network. Check back soon to connect with our graduates!</p>
+            <h3 class="section-title">Alumni Information Coming Soon</h3>
+            <p class="section-subtitle">We're updating our alumni directory. Check back soon!</p>
             <div style="margin-top: 2rem;">
                 <a href="{% url 'website:index' %}" class="learn-more-btn">Return Home</a>
             </div>
@@ -170,14 +190,74 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2 class="section-title">Join Our Legacy</h2>
-                <p class="section-subtitle">Current SHPE UVA members will join this distinguished network of professionals upon graduation</p>
-                <div style="margin-top: 2rem;">
-                    <a href="https://shpe.org/engage/events/national-convention/" target="_blank" class="btn-primary-modern">Become a Member</a>
-                    <a href="{% url 'website:index' %}" class="learn-more-btn" style="margin-left: 1rem;">Learn More About SHPE</a>
+                <h2 class="section-title">Stay Connected</h2>
+                <p class="section-subtitle">Join our alumni network and stay connected with fellow SHPE UVA graduates</p>
+                <div class="learn-more-btn-container">
+                    <a href="https://shpe.org/engage/events/national-convention/" target="_blank" class="btn-primary-modern">Join SHPE National</a>
+                    <a href="https://www.linkedin.com/in/shpe-at-uva-a08226210/" target="_blank" class="btn-secondary-modern">Connect on LinkedIn</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Lazy loading functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const container = img.closest('.alumni-photo-container');
+                    const spinner = container.querySelector('.loading-spinner');
+                    
+                    // Show loading spinner
+                    if (spinner) {
+                        spinner.style.display = 'block';
+                    }
+                    
+                    // Load the actual image
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-image');
+                    
+                    // Hide spinner and show image when loaded
+                    img.onload = function() {
+                        if (spinner) {
+                            spinner.style.display = 'none';
+                        }
+                        img.style.opacity = '1';
+                    };
+                    
+                    // Handle load errors
+                    img.onerror = function() {
+                        if (spinner) {
+                            spinner.style.display = 'none';
+                        }
+                        img.src = "{% static 'images/default-avatar.svg' %}";
+                        img.style.opacity = '0.8';
+                    };
+                    
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px', // Start loading 50px before the image comes into view
+            threshold: 0.01
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-image');
+        });
+    }
+});
+</script>
 {% endblock %}

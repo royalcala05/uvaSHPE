@@ -1,5 +1,8 @@
 from django.db import models
 from django.core.validators import EmailValidator
+from PIL import Image
+import io
+from django.core.files.base import ContentFile
 
 
 class Alumni(models.Model):
@@ -14,7 +17,7 @@ class Alumni(models.Model):
         upload_to='alumni_photos/',
         blank=True,
         null=True,
-        help_text="Professional headshot photo (optional)"
+        help_text="Professional headshot photo (optional) - Will be automatically compressed"
     )
     
     bio = models.TextField(
@@ -95,3 +98,35 @@ class Alumni(models.Model):
     
     def __str__(self):
         return f"{self.name} (Class of {self.graduation_year})"
+    
+    def save(self, *args, **kwargs):
+        """Override save method to compress headshot images"""
+        if self.headshot:
+            img = Image.open(self.headshot)
+            
+            if img.mode in ('RGBA', 'LA', 'P'):
+                background = Image.new('RGB', img.size, (255, 255, 255))
+                if img.mode == 'P':
+                    img = img.convert('RGBA')
+                background.paste(img, mask=img.split()[-1] if img.mode == 'RGBA' else None)
+                img = background
+            
+            max_size = (400, 400)
+            if img.size[0] > max_size[0] or img.size[1] > max_size[1]:
+                img.thumbnail(max_size, Image.Resampling.LANCZOS)
+            
+            output = io.BytesIO()
+            img.save(output, format='JPEG', quality=70, optimize=True)
+            output.seek(0)
+            
+            filename = self.headshot.name
+            if not filename.endswith('.jpg'):
+                filename = filename.rsplit('.', 1)[0] + '.jpg'
+            
+            self.headshot.save(
+                filename,
+                ContentFile(output.read()),
+                save=False
+            )
+        
+        super().save(*args, **kwargs)

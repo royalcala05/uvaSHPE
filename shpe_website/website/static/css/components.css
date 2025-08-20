@@ -10,6 +10,7 @@
   text-decoration: none;
   box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
   transition: all 0.3s ease;
+  width: 20rem;
 }
 
 .btn-primary-modern:hover {
@@ -20,7 +21,7 @@
 }
 
 .btn-secondary-modern {
-  background: transparent;
+  background: #1a4b73;
   border: 2px solid white;
   padding: 1rem 2rem;
   font-size: 1.1rem;
@@ -29,14 +30,25 @@
   color: white;
   text-decoration: none;
   transition: all 0.3s ease;
+  width: 20rem;
 }
 
 .btn-secondary-modern:hover {
   background: white;
   color: #0e3559;
   transform: translateY(-3px);
+  
 }
 
+.learn-more-btn-container {
+    margin-top: 2rem;
+    max-height: 200px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
 .learn-more-btn {
   display: inline-block;
   background: linear-gradient(45deg, #0e3559, #1a4b73);
@@ -198,19 +210,108 @@
   background: linear-gradient(90deg, #ff6b35, #ff8a60);
 }
 
+/* Loading Spinner and Lazy Loading Styles */
+.alumni-photo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(14, 53, 89, 0.1);
+  border-top: 3px solid #0e3559;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: none;
+  z-index: 2;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .alumni-photo {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.2);
-  margin: 0 auto 1rem;
-  display: block;
-  transition: transform 0.3s ease;
+  border: 3px solid rgba(14, 53, 89, 0.1);
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
 }
 
-.alumni-card:hover .alumni-photo {
+.alumni-photo:hover {
+  border-color: #0e3559;
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(14, 53, 89, 0.2);
+}
+
+/* Loading state styles */
+.alumni-photo-container.loading .loading-spinner {
+  display: block;
+}
+
+.alumni-photo-container.loading .alumni-photo {
+  opacity: 0.3;
+}
+
+/* Error state styles */
+.alumni-photo.error {
+  opacity: 0.6;
+  filter: grayscale(100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .alumni-photo-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .alumni-photo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .loading-spinner {
+    width: 25px;
+    height: 25px;
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 576px) {
+  .alumni-photo-container {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .alumni-photo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+  }
 }
 
 .alumni-name {
@@ -263,10 +364,32 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1rem;
-  max-height: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   flex-grow: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-height: 120px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Custom scrollbar for webkit browsers */
+.alumni-bio::-webkit-scrollbar {
+  width: 6px;
+}
+
+.alumni-bio::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.alumni-bio::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.alumni-bio::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .alumni-social {
