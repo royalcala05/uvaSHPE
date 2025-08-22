@@ -69,13 +69,8 @@
                     <h3 class="alumni-name">{{ alumni.name }}</h3>
                     <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
                     
-                    {% if alumni.position %}
-                    <div class="alumni-title">{{ alumni.position }}</div>
-                    {% endif %}
-                    
-                    {% if alumni.company %}
-                    <div class="alumni-company">{{ alumni.company }}</div>
-                    {% endif %}
+                    <div class="alumni-title">{{ alumni.display_position }}</div>
+                    <div class="alumni-company">{{ alumni.display_company }}</div>
                         
                     {% if alumni.bio %}
                     <div class="alumni-bio">{{ alumni.bio }}</div>
@@ -145,13 +140,8 @@
                 <h3 class="alumni-name">{{ alumni.name }}</h3>
                 <div class="alumni-major">{{ alumni.major }} • Class of {{ alumni.graduation_year }}</div>
                 
-                {% if alumni.position %}
-                <div class="alumni-title">{{ alumni.position }}</div>
-                {% endif %}
-                
-                {% if alumni.company %}
-                <div class="alumni-company">{{ alumni.company }}</div>
-                {% endif %}
+                <div class="alumni-title">{{ alumni.display_position }}</div>
+                <div class="alumni-company">{{ alumni.display_company }}</div>
                     
                 {% if alumni.bio %}
                 <div class="alumni-bio">{{ alumni.bio }}</div>

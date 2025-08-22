@@ -26,12 +26,16 @@ class Alumni(models.Model):
     
     position = models.CharField(
         max_length=200,
-        help_text="Current job title or position"
+        blank=True,
+        null=True,
+        help_text="Current job title or position (optional)"
     )
     
     company = models.CharField(
         max_length=200,
-        help_text="Current company, university, or organization"
+        blank=True,
+        null=True,
+        help_text="Current company, university, or organization (optional)"
     )
     
     SHPE_STATUS_CHOICES = [
@@ -99,10 +103,39 @@ class Alumni(models.Model):
     def __str__(self):
         return f"{self.name} (Class of {self.graduation_year})"
     
+    @property
+    def display_position(self):
+        """Return position or default to 'Student' if empty"""
+        return self.position if self.position else 'Student'
+    
+    @property
+    def display_company(self):
+        """Return company or default to 'UVA' if empty"""
+        return self.company if self.company else 'UVA'
+    
     def save(self, *args, **kwargs):
         """Override save method to compress headshot images"""
         if self.headshot:
             img = Image.open(self.headshot)
+            
+            # Handle EXIF orientation to fix rotation issues
+            try:
+                # Get EXIF data
+                exif = img._getexif()
+                if exif is not None:
+                    # Orientation tag
+                    orientation = exif.get(274)  # 274 is the orientation tag
+                    if orientation is not None:
+                        # Rotate image based on orientation
+                        if orientation == 3:
+                            img = img.rotate(180, expand=True)
+                        elif orientation == 6:
+                            img = img.rotate(270, expand=True)
+                        elif orientation == 8:
+                            img = img.rotate(90, expand=True)
+            except (AttributeError, KeyError, IndexError):
+                # If EXIF data is missing or corrupted, continue without rotation
+                pass
             
             if img.mode in ('RGBA', 'LA', 'P'):
                 background = Image.new('RGB', img.size, (255, 255, 255))
