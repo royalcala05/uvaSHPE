@@ -45,15 +45,15 @@
                 <div class="alumni-photo-container">
                     {% if exec.headshot %}
                     <img src="{% static 'images/default-avatar.svg' %}" 
-                         data-src="{{ exec.headshot.url }}" 
-                         alt="{{ exec.name }}" 
-                         class="alumni-photo lazy-image"
-                         loading="lazy">
+                        data-src="{{ exec.headshot.url }}" 
+                        alt="{{ exec.name }}" 
+                        class="alumni-photo lazy-image"
+                        loading="lazy">
                     {% else %}
                     <img src="{% static 'images/default-avatar.svg' %}" 
-                         alt="{{ exec.name }}" 
-                         class="alumni-photo" 
-                         style="opacity: 0.8;">
+                        alt="{{ exec.name }}" 
+                        class="alumni-photo" 
+                        style="opacity: 0.8;">
                     {% endif %}
                     <div class="loading-spinner"></div>
                 </div>
